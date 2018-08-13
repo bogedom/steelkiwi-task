@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <a routerLink="/" mat-button>
+      SteelKiwi Task
+    </a>
+    <div fxShow="true" fxHide.lt-md="true" *ngIf="auth.isAuthenticated()">
+      <button mat-button routerLink="/users/search">
+        <mat-icon class="icon">search</mat-icon>
+        Search users
+      </button>
+    </div>
+
+    <span class="spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <button mat-button (click)="onLogin()" *ngIf="!auth.isAuthenticated()">
+        <mat-icon class="icon">exit_to_app</mat-icon>
+        Login
+      </button>
+      <button mat-button (click)="onLogout()" *ngIf="auth.isAuthenticated()">
+        <mat-icon class="icon">logout</mat-icon>
+        Logout
+      </button>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a href="#" mat-list-item>
+        <mat-icon>search</mat-icon>
+        Search users
+      </a>
+      <a mat-list-item (click)="onLogin()" *ngIf="!auth.isAuthenticated()">
+        <mat-icon>exit_to_app</mat-icon>
+        Login
+      </a>
+      <a mat-list-item (click)="onLogout()" *ngIf="auth.isAuthenticated()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </a>
+      <a (click)="sidenav.toggle()" mat-list-item>
+        <mat-icon>close</mat-icon>
+        Close
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>

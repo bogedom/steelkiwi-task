@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCpKeFwPfrwQyFT0xL-5bqnhWaYszDGwtE',
+    authDomain: 'steelkivi-task.firebaseapp.com',
+    databaseURL: 'https://steelkivi-task.firebaseio.com',
+    projectId: 'steelkivi-task',
+    storageBucket: '',
+    messagingSenderId: '472161453330'
+  }
 };
 
 /*

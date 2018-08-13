@@ -1,0 +1,12 @@
+<mat-card class="card" *ngIf="user">
+  <mat-card-header>
+    <mat-card-title>Name: {{user.name}} | Login: {{user.login}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="[user.avatar_url]" [alt]="[user.avatar_url]">
+  <mat-card-content>
+    <p *ngIf="user.bio">BIO: {{user.bio}}</p>
+    <p *ngIf="user.location">Location: {{user.location}}</p>
+    <p>GitHub page: <a [href]="[user.html_url]">{{user.html_url}}</a></p>
+    <p>Created at: {{user.created_at | date}}</p>
+  </mat-card-content>
+</mat-card>
